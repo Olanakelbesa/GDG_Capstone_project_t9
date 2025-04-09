@@ -16,8 +16,8 @@ const Navbar = () => {
         {/* Logo */}
         <div
           className={`flex items-center ${
-            showSearch ? "hidden md:flex" : "flex"
-          }`}
+            showSearch ? "hidden" : "flex"
+          } md:flex`}
         >
           <img
             src="/image/logo1 1.png"
@@ -28,7 +28,7 @@ const Navbar = () => {
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">
-          <a href="#" className="hover:text-yellow-400 md:mr-50 mr-5">
+          <a href="#" className="hover:text-yellow-400 md:ml-20 lg:mr-50 mr-5">
             Home
           </a>
           <div className="flex items-center gap-1 hover:text-yellow-400 cursor-pointer">
@@ -46,16 +46,16 @@ const Navbar = () => {
         </nav>
 
         {/* Search + Mobile Menu */}
-        <div className="flex items-center gap-3 md:gap-4">
-          {showSearch ? (
+        <div className="flex items-center gap-3 md:gap-4 flex-1 justify-end">
+          {showSearch && (
             <input
               type="text"
               placeholder="Search..."
               autoFocus
               onBlur={() => setShowSearch(false)}
-              className="px-3 py-1 rounded-md text-white w-full lg:w-auto focus:outline-none focus:ring-2 focus:ring-white-400 bg-blue-500"
+              className="px-3 py-1 rounded-md md:ml-20 md:w-50 text-white w-full max-w-xs focus:outline-none focus:ring-2 focus:ring-white bg-blue-500"
             />
-          ) : null}
+          )}
 
           {/* Mobile icons grouped together */}
           <div className="flex items-center gap-3">
