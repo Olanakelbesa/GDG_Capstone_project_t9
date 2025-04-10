@@ -1,9 +1,15 @@
-import React from 'react'
+import React from "react";
+import { useParams } from "react-router-dom";
+import BlogDetailsMain from "./BlogDetails_main";
 
 const BlogDetails = () => {
-  return (
-    <div>BlogDetails</div>
-  )
-}
+  const { id } = useParams();
 
-export default BlogDetails
+  return (
+    <div>
+       <BlogDetailsMain />
+    </div>
+  );
+};
+
+export default BlogDetails;
