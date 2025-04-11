@@ -1,9 +1,12 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { FaSearch, FaBars, FaTimes, FaChevronDown } from "react-icons/fa";
+
 
 const Navbar = () => {
   const [showSearch, setShowSearch] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isPackagesOpen, setPackagesOpen] = useState(false);
 
   const handleSearchToggle = () => {
     setShowSearch((prev) => !prev);
@@ -11,61 +14,62 @@ const Navbar = () => {
   };
 
   return (
-    <header className="fixed top-0 left-0 w-full opacity-70 z-50 bg-blue-600 backdrop-blur-md text-white">
-      <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between relative">
-        {/* Logo */}
-        <div
-          className={`flex items-center ${
-            showSearch ? "hidden" : "flex"
-          } md:flex`}
-        >
-          <img
-            src="/image/logo1 1.png"
-            alt="Rebel Rover Logo"
-            className="h-10 md:h-12 object-contain"
-          />
+    <header className="fixed top-0 left-0 w-full bg-transparent backdrop-blur-md text-white z-50 opacity-90">
+      <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between w-full">
+        
+        <div className={`flex items-center ${showSearch ? "hidden" : "flex"} md:flex`}>
+        <img
+        
+         src="/image/logo1.png" 
+        alt="Rebel Rover Logo"
+        className="h-10 md:h-12 object-contain"
+      />
         </div>
 
-        {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">
-          <a href="#" className="hover:text-yellow-400 md:ml-20 lg:mr-50 mr-5">
-            Home
-          </a>
-          <div className="flex items-center gap-1 hover:text-yellow-400 cursor-pointer">
-            Package <FaChevronDown className="text-xs" />
-          </div>
-          <div className="flex items-center gap-1 hover:text-yellow-400 cursor-pointer">
-            Destination <FaChevronDown className="text-xs" />
-          </div>
-          <div className="flex items-center gap-1 hover:text-yellow-400 cursor-pointer">
-            Blog <FaChevronDown className="text-xs" />
-          </div>
-          <a href="#" className="hover:text-yellow-400">
-            Contact
-          </a>
-        </nav>
+      
+        <ul className="hidden md:flex space-x-10 ml-auto items-center">
+          <li><Link to='/' className="hover:text-gray-400">Home</Link></li>
+          <li><Link to='/about' className="hover:text-gray-400">About Us</Link></li>
+          <li 
+            className="relative"
+            onMouseEnter={() => setPackagesOpen(true)} 
+            onMouseLeave={() => setPackagesOpen(false)}
+          >
+            <Link to="/packages" className="flex items-center gap-1 hover:text-gray-400">
+              Package <FaChevronDown className="text-xs" />
+            </Link>
+            {isPackagesOpen && (
+              <ul className="absolute left-0 mt-2 bg-gray-700 text-sm rounded shadow-lg">
+                <li><Link to='/package1' className="block px-4 py-2 hover:bg-gray-600">Adventure Package</Link></li>
+                <li><Link to='/package2' className="block px-4 py-2 hover:bg-gray-600">Relaxation Package</Link></li>
+              </ul>
+            )}
+          </li>
+          <li className="flex items-center gap-1 hover:text-gray-400 cursor-pointer">
+  <Link to='/blog' className="flex items-center gap-1">
+    Blog <FaChevronDown className="text-xs" />
+  </Link>
+</li>
+          <li><Link to='/contact' className="hover:text-gray-400">Contact</Link></li>
+        </ul>
 
-        {/* Search + Mobile Menu */}
-        <div className="flex items-center gap-3 md:gap-4 flex-1 justify-end">
+       
+        <div className="flex items-center gap-3 md:gap-4 md:ml-4">
           {showSearch && (
             <input
               type="text"
               placeholder="Search..."
               autoFocus
               onBlur={() => setShowSearch(false)}
-              className="px-3 py-1 rounded-md md:ml-20 md:w-50 text-white w-full max-w-xs focus:outline-none focus:ring-2 focus:ring-white bg-blue-500"
+              className="px-3 py-1 rounded-md w-full max-w-xs text-white bg-blue-500 focus:outline-none focus:ring-2 focus:ring-white"
             />
           )}
 
-          {/* Mobile icons grouped together */}
+         
           <div className="flex items-center gap-3">
-            <button
-              onClick={handleSearchToggle}
-              className="text-white text-lg md:ml-6"
-            >
+            <button onClick={handleSearchToggle} className="text-white text-lg">
               <FaSearch />
             </button>
-
             <button
               className="md:hidden text-white text-xl"
               onClick={() => {
@@ -79,24 +83,13 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile Dropdown Menu */}
+  
       {mobileMenuOpen && (
         <div className="md:hidden bg-blue-700 px-4 pb-4 space-y-3 text-sm">
-          <a href="#" className="block py-1 hover:text-yellow-400">
-            Home
-          </a>
-          <a href="#" className="block py-1 hover:text-yellow-400">
-            Package
-          </a>
-          <a href="#" className="block py-1 hover:text-yellow-400">
-            Destination
-          </a>
-          <a href="#" className="block py-1 hover:text-yellow-400">
-            Blog
-          </a>
-          <a href="#" className="block py-1 hover:text-yellow-400">
-            Contact
-          </a>
+          <Link to="/" className="block py-1 hover:text-yellow-400">Home</Link>
+          <Link to="/packages" className="block py-1 hover:text-yellow-400">Package</Link>
+          <Link to="/blog" className="block py-1 hover:text-yellow-400">Blog</Link>
+          <Link to="/contact" className="block py-1 hover:text-yellow-400">Contact</Link>
         </div>
       )}
     </header>

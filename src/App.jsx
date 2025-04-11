@@ -1,29 +1,34 @@
-import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Home from "./pages/Home";
-import About from "./pages/About";
-import NoPage from "./pages/NoPage";
-import Layout from "./components/Layout";
-import Contacts from "./pages/Contacts";
-import Package from "./pages/Package";
-import BlogDetails from "./pages/BlogDetails";
+import React from 'react'
+import Navbar from './components/Navbar'
+// import './Navbar.css'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import Home from './pages/Home'
+import AboutUs from './pages/AboutUs'
+import Package from './pages/Package'
+import SingleBlog from './pages/SingleBlog'
+import Contact from './pages/Contact'
 
-const App = () => {
+function App() {
+ 
+
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
-          <Route path="about" element={<About />} />
-          <Route path="contact" element={<Contacts />} />
-          <Route path="packages" element={<Package />}>
-            <Route path="blogs/:id" element={<BlogDetails />} />
-          </Route>
-          <Route path="*" element={<NoPage />} />
-        </Route>
-      </Routes>
-    </Router>
-  );
-};
+    
+      <div>
+        <Router>
+           <Navbar />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<AboutUs />} />
+             <Route path="/packages" element={<Package/>} />
+            <Route path="/blog" element={<SingleBlog />} />
+            <Route path="/contact" element={<Contact />} /> 
+          </Routes>
+        </Router>
+        
 
-export default App;
+        
+    </div>
+  )
+}
+
+export default App
