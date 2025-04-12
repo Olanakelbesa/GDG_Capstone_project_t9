@@ -1,8 +1,16 @@
-import React from 'react'
+import Packages from '../components/packageComponents/packagesCont'
+import Footer from './footer'
+import Header from '../components/packageComponents/header'
 
-const Package = () => {
+
+function Package() {
+
   return (
-    <div>Package</div>
+    <>
+     <Header />
+     <Packages />
+     <Footer />
+    </>
   )
 }
 
