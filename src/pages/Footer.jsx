@@ -1,5 +1,6 @@
 import { FaFacebookF, FaTwitter, FaYoutube, FaInstagram } from "react-icons/fa";
 import { MdLocationOn, MdEmail, MdPhone } from "react-icons/md";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -65,24 +66,24 @@ const Footer = () => {
             <h3 className="font-semibold text-lg mb-4">Quick Link</h3>
             <ul className="space-y-2 text-sm text-gray-700">
               <li>
-                <a href="#" className="hover:text-yellow-500 transition-colors">
+                <Link to="/" className="hover:text-yellow-500 transition-colors">
                   Home
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="hover:text-yellow-500 transition-colors">
+                <Link to="/about" className="hover:text-yellow-500 transition-colors">
                   About Us
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="hover:text-yellow-500 transition-colors">
+                <a href="https://www.tour.com/" target="_blank" className="hover:text-yellow-500 transition-colors">
                   Tours
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-yellow-500 transition-colors">
+                <Link to="/contact" className="hover:text-yellow-500 transition-colors">
                   Contact
-                </a>
+                </Link>
               </li>
             </ul>
           </div>

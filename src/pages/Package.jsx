@@ -1,17 +1,18 @@
-import Packages from '../components/packageComponents/packagesCont'
-import Footer from './footer'
-import Header from '../components/packageComponents/header'
-
+import Packages from "../components/packageComponents/PackagesContent";
+import Footer from "./Footer";
+import PackageHeader from "../components/packageComponents/PackageHeader";
+import PackageArticles from "../components/packageComponents/PackageArticles";
+import PackagesContent from "../components/packageComponents/PackagesContent";
 
 function Package() {
-
   return (
     <>
-     <Header />
-     <Packages />
-     <Footer />
+      <PackageHeader />
+      <PackagesContent />
+      <PackageArticles />
+      <Footer />
     </>
-  )
+  );
 }
 
-export default Package
+export default Package;
