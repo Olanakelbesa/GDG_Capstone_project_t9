@@ -79,7 +79,7 @@ const HeroSection = () => {
             </div>
 
             {/* Button */}
-            <button className="bg-black text-white font-semibold px-6 py-2 cursor-pointer rounded-full hover:bg-yellow-600 transition">
+            <button className="bg-black text-white font-semibold px-4 py-1.5 md:px-6 md:py-2 text-sm md:text-base cursor-pointer rounded-full hover:bg-yellow-600 transition">
               Explore now
             </button>
           </div>
