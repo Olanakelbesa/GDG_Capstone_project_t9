@@ -115,8 +115,7 @@ const Footer = () => {
         </div>
       </footer>
 
-      {/* Whitespace after footer */}
-      <div className="h-20 bg-white"></div>
+      
     </>
   );
 };
