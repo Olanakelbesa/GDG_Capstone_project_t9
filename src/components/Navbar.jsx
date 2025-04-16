@@ -22,7 +22,7 @@ const Navbar = () => {
   };
 
   return (
-    <header className="fixed top-0 left-0 w-full opacity-90 z-50 bg-blue-600 backdrop-blur-md text-white">
+    <header className="fixed top-0 left-0 w-full opacity-90 z-50 bg-transparent backdrop-blur-md text-white">
       <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between w-full relative">
         {/* Logo (hidden on mobile dropdown open or search bar on iPad) */}
         <div
